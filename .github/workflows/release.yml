@@ -145,7 +145,7 @@ jobs:
           xcb-util-renderutil \
           xcb-util-wm-devel
       - name: Download wayland libraries
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: wayland
       - name: Unpack wayland artifact
@@ -183,12 +183,12 @@ jobs:
     steps:
       - name: Download wheels
         if: ${{ matrix.manual-version == '' }}
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: wheels-cp${{ matrix.python-version }}
       - name: Download wheels (manual)
         if: ${{ matrix.manual-version != '' }}
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: wheels-${{ matrix.manual-version }}
       - name: Setup Python
@@ -238,13 +238,13 @@ jobs:
     steps:
       - name: Download wheels
         if: ${{ matrix.manual-version == '' }}
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: wheels-cp${{ matrix.python-version }}
           path: dist/
       - name: Download wheels (manual)
         if: ${{ matrix.manual-version != '' }}
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: wheels-${{ matrix.manual-version }}
           path: dist/
@@ -270,7 +270,7 @@ jobs:
       python-version: "cp3.11"
     steps:
       - name: Download source
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: source
           path: dist/
